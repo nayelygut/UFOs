@@ -1,5 +1,5 @@
 // import data from data.js
-const tableData = data;
+const tableData=data;
 // reference the html table using d3
 var tbody = d3.select("tbody");
 // function to build a table
@@ -16,7 +16,10 @@ function buildTable(data) {
             cell.text(val);
 
         });
-    });}
+    });
+}
+
+
 function handleClick(){
     // grab the datetime value from the filter
     let date = d3.select("#datetime").property("value");
@@ -24,9 +27,12 @@ function handleClick(){
     if (date) {
         filteredData = filteredData.filter(
             row => row.datetime === date);
-    };
+    }
     buildTable(filteredData);
-    d3.selectAll("#filter-btn").on("click", handleClick);
-    // build the table when the page loads
-    buildTable(tableData);
 };
+
+// Attach an event to listen for the form button
+d3.selectAll("#filter-btn").on("click", handleClick);
+
+// Build the table when the page loads
+buildTable(tableData);
