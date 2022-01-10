@@ -45,26 +45,23 @@ function updateFilters() {
       delete filters[id];
       };
     // 6. Call function to apply all filters and rebuild the table
-    filterTable();
+    filterTable(filters);
   
   }
   
   // 7. Use this function to filter the table when data is entered.
-  function filterTable() {
-  
+  function filterTable(filters) {
+    console.log(filters)
     // 8. Set the filtered data to the tableData.
     let filteredData = tableData;
-    let variable = d3.select(this).property(value);
     let keys = Object.keys(filters)
-    // 9. Loop through all of the filters and keep any data that
-    // matches the filter values
-    for (let idValueSet in filters) {
-      if (variable) {
-        filteredData = filteredData.filter(
-            row => row.keys[0] === variable);
-      }
+    keys.forEach(current_key => { 
+      filteredData = filteredData.filter(
+        row => row[current_key] === filters[current_key]);
     }
-    
+    );
+
+    console.log(filteredData.length);
     // 10. Finally, rebuild the table using the filtered data
     buildTable(filteredData);
     }
