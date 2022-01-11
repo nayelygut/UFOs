@@ -4,7 +4,7 @@ A page was created to display a chart of UFO sightings. The chart can be filtere
 
 ## Results
 To filter the chart, you can type as many criteria as you would like. There is no need to press a button, the chart will update automatically with each new search criteria. 
-![]("screen_shot.jpg")
+![]("screen_shot.png")
 In the example above, we filtered by date "1/2/2010" and shape "sphere". We got 2 results. 
 
 ## Summary
